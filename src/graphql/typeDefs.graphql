@@ -1,0 +1,37 @@
+type Query{
+   todosAlunos: [Aluno!]!
+    umAluno(id:ID!):Aluno!   
+    todosCursos: [Curso!]!
+    umCurso(id:ID!):Curso!   
+    todosProfessores: [Professor!]!
+    umProfessor(id:ID!):Professor!   
+} 
+
+type Mutation{
+    createAluno(Nome:String, Sobrenome:String,Email:String):String
+    createCurso(Nome:String):String
+    createProfessores(Nome:String, Sobrenome:String,Email:String, Matricula:String):String
+}   
+
+type Aluno{
+    id: ID
+    Nome:String
+    Sobrenome:String
+    Email:String
+    
+}
+
+type Curso{
+    id: ID
+    Nome:String
+    
+}
+
+type Professor{
+    id: ID
+    Nome:String
+    Sobrenome:String
+    Email:String
+    Matricula:Number
+    
+}
