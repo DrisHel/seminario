@@ -49,6 +49,70 @@ const Mutation = {
         }
 
     },
+
+    updateAluno: async (root, { id, Nome, Sobrenome, Email }) => {
+        try {
+            await alunos.update({ Nome, Sobrenome, Email }, {
+                where: { id }
+            })
+            return "update user"
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    updateCurso: async (root, { id, Nome }) => {
+        try {
+            await cursos.update({ Nome }, {
+                where: { id }
+            })
+            return "update curso"
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    updateProfessores: async (root, { id, Nome, Sobrenome, Email, Matricula }) => {
+        try {
+            await professores.update({ Nome, Sobrenome, Email, Matricula }, {
+                where: { id }
+            })
+            return "update Professor"
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+
+    deleteProfessores: async (root, { id }) => {
+        try {
+            await professores.destroy({ where: { id } })
+
+            return "Deletado Professor"
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    deleteCurso: async (root, { id }) => {
+        try {
+            await cursos.destroy({ where: { id } })
+
+            return "Deletado Curso"
+        } catch (error) {
+            console.log(error)
+        }
+    },
+
+    deleteAluno: async (root, { id }) => {
+        try {
+            await alunos.destroy({ where: { id } })
+
+            return "Deletado Aluno"
+        } catch (error) {
+            console.log(error)
+        }
+    },
 }
 module.exports = { Query, Mutation };
 
