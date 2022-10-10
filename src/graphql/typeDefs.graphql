@@ -29,7 +29,7 @@ type Aluno{
 type Curso{
     id: ID
     Nome:String
-}
+  }
 
 type Professor{
     id: ID
